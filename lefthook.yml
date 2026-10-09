@@ -1,0 +1,19 @@
+# lefthook.yml — Git hooks for the RepoLicense module.
+# Install:  lefthook install   (via `scoop install lefthook` or `winget install evilmartians.lefthook`)
+# Run manually:  lefthook run pre-commit | pre-push
+
+pre-commit:
+  commands:
+    lint:
+      glob: "*.{ps1,psm1,psd1}"
+      run: pwsh -NoProfile -Command "Invoke-ScriptAnalyzer -Path {staged_files} -Severity Error"
+
+commit-msg:
+  commands:
+    lint-message:
+      run: pwsh -NoProfile -File scripts/validate-commit-msg.ps1 {1}
+
+pre-push:
+  commands:
+    test:
+      run: pwsh -NoProfile -Command "Invoke-Pester ./Tests"
