@@ -6,7 +6,7 @@ pre-commit:
   commands:
     lint:
       glob: "*.{ps1,psm1,psd1}"
-      run: pwsh -NoProfile -Command "Invoke-ScriptAnalyzer -Path {staged_files} -Severity Error"
+      run: pwsh -NoProfile -Command "Invoke-ScriptAnalyzer -Path {staged_files} -Settings ./PSScriptAnalyzerSettings.psd1"
 
 commit-msg:
   commands:
