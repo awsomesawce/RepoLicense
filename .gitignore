@@ -1,0 +1,19 @@
+# Build output
+/output/
+/dist/
+/publish/
+*.log
+
+# PowerShell Gallery packaging
+*.nupkg
+
+# VS Code
+.vscode/
+
+# Test results
+/testresults/
+TestResults.xml
+
+# OS artifacts
+.DS_Store
+Thumbs.db
